@@ -1,0 +1,89 @@
+<div class="register-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form action="javascript:;" #form="ngForm" (ngSubmit)="onPressRegister(form)">
+                    <div class="card">
+                        <div class="card-header d-flex">
+                            <i class="fa fa-user"></i>
+                            <h4>register</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group ">
+                                <label for="">User Name</label>
+                                <input type="text" class="form-control" name="userName" [(ngModel)]="user.userName"
+                                    required #userName="ngModel" minlength="6">
+
+                                <div *ngIf="form.submitted" class="validation-error">
+                                    <div *ngIf="userName?.errors?.required">
+                                        User Name is Required
+                                    </div>
+                                    <div *ngIf="userName?.errors?.minlength">
+                                        User Name Must Be At least 6 Character
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password" minlength="6"
+                                    [(ngModel)]="user.password" #password="ngModel" required>
+
+                                <div *ngIf="form.submitted" class="validation-error">
+                                    <div *ngIf="password?.errors?.required">
+                                        Password is Required
+                                    </div>
+                                    <div *ngIf="password?.errors?.minlength">
+                                        Password Must Be At least 6 Character
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group ">
+                                <label for="">First Name</label>
+                                <input type="text" class="form-control" name="firstName"
+                                    [(ngModel)]="user.firstName" #firstName="ngModel" required>
+
+                                <div *ngIf="form.submitted" class="validation-error">
+                                    <div *ngIf="firstName?.errors?.required">
+                                        First Name is Required
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="">Last Name</label>
+                                <input type="text" class="form-control" name="lastName"
+                                    [(ngModel)]="user.lastName" #lastName="ngModel" required>
+
+                                <div *ngIf="form.submitted" class="validation-error">
+                                    <div *ngIf="lastName?.errors?.required">
+                                        last Name is Required
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer d-flex justify-content-around">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button class="btn btn-light" type="button" [routerLink]="['/login']">Have Account
+                                !</button>
+                        </div>
+                    </div>
+                </form>
+                <div *ngIf="submitSuccess" class="alert alert-primary" role="alert">
+                    {{messageResponse}}
+                </div>
+
+                <div *ngIf="submitError" class="alert alert-danger" role="alert">
+                    {{messageResponse}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.card-content
+    padding: 10px
+.register-section
+    height: 100vh
+    width: 100%
+    .container
+        position: relative
+        height: 100%
+        .row
+            height: 100%
+            .card
+                position: absolute
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+                left: 50%
+                top: 50%
+                -webkit-transform: translate(-50%, -50%)
+                transform: translate(-50%, -50%)
+                width: 100%
+                &:hover
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+                .card-footer, .card-header
+                    background: transparent
+                    padding: 20px
+                    .fa-user
+                        margin: 10px
+                    .btn
+                        width: 30%
+                
+.validation-error
+    color: red 
+    font-size: 13px
